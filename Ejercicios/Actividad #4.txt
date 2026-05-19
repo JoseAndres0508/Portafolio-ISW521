@@ -1,0 +1,33 @@
+1.
+
+URL: campus.utn.ac.cr
+TLD: .cr
+SLD: utn.ac
+Subdominio: campus
+
+URL: www.netflix.com
+TLD: .com
+SLD: netflix
+Subdominio: WWW
+
+URL: api.github.io
+TLD: .io
+SLD: github
+Subdominio: api
+
+URL: app.maravilla.co.cr
+TLD: .cr
+SLD: maravilla.co
+Subdominio: app
+
+2. 
+.cr > NIC Costa Rica(UCR)
+.com > Verisign (bajo ICANN)
+No, los subdominios se crean internamente bajo el mismo DNS.
+
+3. No debe pagar extra por el dominio de egresados, ya que este se crea internamente en el DNS
+
+4.
+
+Registro A > mapea un nombre de dominio con la IP4 directamente
+CNAME > mapea un nombre a otro nombre (alias)

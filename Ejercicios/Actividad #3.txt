@@ -1,0 +1,22 @@
+Parte A
+
+Partes del URL
+
+-Protocolo: https
+-Dominio: api.github.com
+-Puerto: 443
+-Ruta: repos/bryancs/isw521/issues
+-Recurso Principal: issues
+-Parámetros: ?state=open&labels=semana1
+-Parametro 1: state=open
+-Parametro 2: labels=semana1
+-Fragmento: #comentarios
+
+Parte B
+
+https://utn.ac.cr/sedes/san-carlos/cursos/isw-521/2026-2
+
+https://utn.ac.cr/estudiantes/2022-0001
+
+https://utn.ac.cr/cursos/isw-521/semana/3/materiales
+

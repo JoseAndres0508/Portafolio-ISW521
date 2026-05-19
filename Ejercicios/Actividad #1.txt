@@ -1,0 +1,7 @@
+Respuestas:
+
+1- Es correcto lo que dijo el Rector: Si, por que él quiere que la aplicación tenga accesos a internet, pero la aclaración del director del IT is valida, por que una es una infraestructura de redes y la son servicios que utiliza internet.
+
+2- Ambas, ya que usan internet por que el sistema funciona sobre la red de redes, y WWW se usa para HTTP que es el protocolos de accesos.
+
+3- W3C define los estándares con la web e interfaz para HTML y CSS y IETF define protocolos fundamentales para HTTP/HTTPS y TCP/IP, DNS 

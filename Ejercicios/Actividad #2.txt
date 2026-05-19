@@ -1,0 +1,14 @@
+1- 
+
+Necesidad A > Internet: un sitio de información publica con tramites para vecinos.
+Necesidad B > Intranet: Un sistema interno de gestion de planillas RRHH y la manipulación de información sensible de empleados y salarios.
+Necesidad C > Extranet: Un portal donde las empresas constructoras externas revisan permisos y tramites.
+
+2- El sistema de RRHH/intranet, esto require mayor inversion de seguridad por la cantidad de información privada, sensible y confidencial y se necesitarían controles fuertes.
+
+3- Si es posible:
+
+Usando maquinas virtuales usando una para cada internet/intranet/extranet
+Usando VLANs para la segmentación de las redes
+Usando Firewalls y reglas de accesos
+Separando las bases de datos y autenticación independiente
