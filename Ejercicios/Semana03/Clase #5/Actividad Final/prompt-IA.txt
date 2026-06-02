@@ -1,0 +1,100 @@
+Actúa como un Desarrollador Frontend Senior certificado en estándares W3C con 10 años de experiencia en HTML5 semántico, accesibilidad WCAG 2.1 y optimización de rendimiento web (Core Web Vitals). Tu especialidad es la auditoría y refactorización de código HTML deficiente producido por 
+desarrolladores junior o generado por IA sin supervisión técnica.
+
+Recibirás el código fuente de una página web institucional llamada "Feria Nacional de Innovación Estudiantil 2025". El código fue generado por inteligencia artificial de forma acrítica y presenta los siguientes problemas técnicos graves:
+
+1. DIV-SOUP: Toda la estructura está construida con <div> genéricos. Ninguna etiqueta semántica HTML5 (<header>, <nav>, <main>, <footer>, <section>, <article>, <aside>) está presente en el documento.
+
+2. FORMULARIO SIN ESTRUCTURA SEMÁNTICA: El formulario de inscripción no tiene etiquetas <label> vinculadas a sus campos, no usa <fieldset> ni <legend> para agrupar campos relacionados, y usa <select> donde un <datalist> sería técnicamente superior.
+
+3. TABLA INCOMPLETA: La tabla de agenda carece de <caption>, <thead>, <tbody> y <tfoot>. Los elementos <th> no tienen atributo scope.
+
+4. VIDEO SIN ATRIBUTOS ESENCIALES: El elemento <video> no tiene atributo poster ni controls, y solo incluye una fuente en formato mp4 sin alternativas para compatibilidad cruzada entre navegadores.
+
+5. IFRAME INSEGURO Y SIN OPTIMIZACIÓN: El iframe de Google Maps no tiene loading="lazy", carece del atributo sandbox con valores apropiados, y no tiene atributo title descriptivo.
+
+6. ANIDAMIENTO INCORRECTO: Existen elementos de bloque (<div>, <h3>) anidados dentro de elementos de línea (<span>, <a>), violando el modelo de contenido HTML5.
+
+REGLAS QUE DEBES CUMPLIR OBLIGATORIAMENTE:
+
+SEMÁNTICA:
+- DEBES reemplazar el <div class="encabezado"> por <header>
+- DEBES reemplazar el <div class="menu"> por <nav>
+- DEBES reemplazar el <div class="contenido"> por <main>
+- DEBES reemplazar el <div class="pie"> por <footer>
+- DEBES reemplazar cada bloque temático (<div class="tarjeta"> estructural) por <section> con su id correspondiente
+- DEBES reemplazar cada tarjeta de proyecto finalista por <article>
+- DEBES conservar todos los estilos CSS existentes sin modificarlos, añadiendo solo los selectores necesarios para las nuevas etiquetas
+
+FORMULARIO:
+- DEBES añadir <label> con atributo for a cada campo del formulario, vinculado al id correspondiente del input, select o textarea
+- DEBES añadir id a cada campo del formulario que no lo tenga
+- DEBES agrupar los campos en exactamente dos <fieldset>:
+  - Primero: "Datos del equipo" (nombre, responsable, correo, teléfono, institución)
+  - Segundo: "Detalles del proyecto" (carrera, categoría, descripción, requerimientos)
+- DEBES añadir <legend> descriptivo a cada <fieldset>
+- DEBES reemplazar el <select> de carrera por un <input type="text"> vinculado a un <datalist> con las mismas opciones del select original
+- DEBES cambiar el <input type="text"> de correo por <input type="email">
+- DEBES cambiar el <input type="text"> de teléfono por <input type="tel">
+
+TABLA:
+- DEBES añadir <caption> como primer hijo de la tabla con texto descriptivo del contenido
+- DEBES envolver la fila de encabezados en <thead>
+- DEBES envolver todas las filas de datos en <tbody>
+- DEBES envolver la fila de totales en <tfoot>
+- DEBES añadir scope="col" a todos los <th> de la fila de encabezados
+- DEBES cambiar el <td> de hora en cada fila de datos por <th scope="row">
+
+VIDEO:
+- DEBES añadir el atributo controls al elemento <video>
+- DEBES añadir el atributo poster="img/preview_feria.jpg" al elemento 
+  <video>
+- DEBES añadir una segunda fuente: <source src="video/feria_presentacion. webm" type="video/webm"> ANTES del source mp4 existente
+- DEBES añadir un párrafo de texto alternativo dentro del <video> como fallback para navegadores sin soporte
+
+IFRAME:
+- DEBES añadir loading="lazy" al iframe
+- DEBES añadir sandbox="allow-scripts allow-same-origin" al iframe
+- DEBES añadir title="Mapa de ubicación del ITCR Campus Central Cartago" al iframe
+- DEBES añadir referrerpolicy="no-referrer-when-downgrade" al iframe
+
+ANIDAMIENTO:
+- DEBES eliminar el <span> que envuelve el bloque de contacto de Secretaría y reemplazarlo por <address>
+- DEBES eliminar los <div> anidados innecesariamente dentro del <a> del enlace al portal del ITCR, dejando solo texto o elementos inline
+
+PROHIBICIONES ABSOLUTAS:
+- NO debes modificar ningún texto de contenido visible
+- NO debes eliminar ni modificar los estilos CSS del <head>
+- NO debes añadir atributos style inline nuevos
+- NO debes cambiar los valores de href, src ni las URLs existentes
+- NO debes añadir clases CSS nuevas
+
+Antes de entregar el resultado, verifica internamente cada uno 
+de estos puntos:
+
+- No existe ningún <div> donde corresponde <header>, <nav>, <main>, <footer>, <section> o <article>
+- Todos los <label> tienen atributo for coincidente con el id de su campo correspondiente
+- El formulario tiene exactamente dos <fieldset> con <legend> descriptivos
+- El campo de carrera usa <input list="..."> vinculado a un <datalist> (NO un <select>)
+- El correo usa type="email" y el teléfono type="tel"
+- La tabla tiene <caption>, <thead>, <tbody> y <tfoot>
+- Todos los <th> de encabezado de columna tienen scope="col"
+- Todos los <th> de encabezado de fila tienen scope="row"
+- El <video> tiene poster, controls y mínimo dos <source> con type video/webm y video/mp4
+- El <iframe> tiene loading="lazy", sandbox="allow-scripts allow-same-origin" y title descriptivo
+- No hay ningún <div>, <p> ni <h1>-<h6> anidado dentro de <span> o como único hijo de <a>
+- El CSS original no fue modificado
+- El contenido visible del texto no fue alterado
+
+Entrega ÚNICAMENTE el bloque de código HTML completo refactorizado.
+
+Requisitos del formato de entrega:
+- Inicia directamente con <!DOCTYPE html>
+- No incluyas explicaciones, comentarios introductorios ni texto antes o después del código
+- No uses bloques de markdown (sin ```html al inicio)
+- El código debe estar correctamente indentado con 4 espacios
+- Incluye comentarios HTML <!-- --> solo para marcar el inicio de cada sección semántica principal
+- El resultado debe poder guardarse directamente como archivo .html y abrirse en el navegador sin modificaciones
+
+
+---Nota: para el archivo V1 se utilizo cloud, y este modifico el CSS del head, cosa que esta escrito en las reglas de no modificar y aun asi lo hizo. Pero para la V2 se utilizo Gemini con el mismo prompt y este hace exactamente lo solicitado, conservar CSS como esta, y por ello no todos los DIV son eliminados completamente.

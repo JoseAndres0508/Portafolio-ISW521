@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Galería Multimedia - Curso en Línea</title>
+</head>
+<body>
+
+  <h1>Galería de Recursos Multimedia</h1>
+
+  <!-- 1. Imagen principal con <picture> y 2 fuentes -->
+  <section>
+    <h2>Imagen del Curso</h2>
+    <picture>
+      <source srcset="https://picsum.photos/800/400" media="(min-width: 800px)">
+      <source srcset="https://picsum.photos/400/200" media="(max-width: 799px)">
+      <img src="https://picsum.photos/400/200" alt="Foto principal del curso en línea">
+    </picture>
+  </section>
+
+  <!-- 2. Video con controles, poster y 2 formatos -->
+  <section>
+    <h2>Video de la Clase</h2>
+    <video controls poster="https://picsum.photos/640/360" width="640">
+      <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+      <source src="https://www.w3schools.com/html/mov_bbb.ogg" type="video/ogg">
+      Tu navegador no soporta la reproducción de video.
+    </video>
+  </section>
+
+  <!-- 3. Audio podcast con controls, sin loop -->
+  <section>
+    <h2>Podcast del Tema</h2>
+    <audio controls>
+      <source src="https://www.w3schools.com/html/horse.mp3" type="audio/mpeg">
+      <source src="https://www.w3schools.com/html/horse.ogg" type="audio/ogg">
+      Tu navegador no soporta la reproducción de audio.
+    </audio>
+  </section>
+
+  <!-- 4. iframe de Google Maps con sandbox correcto -->
+  <section>
+    <h2>Ubicación del Campus UTN</h2>
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3929.9!2d-84.0!3d9.93!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zCToxMCdOMCA4NCowMCdX!5e0!3m2!1ses!2scr!4v1"
+      width="600"
+      height="450"
+      title="Mapa de ubicación del campus"
+      sandbox="allow-scripts allow-same-origin"
+      loading="lazy">
+    </iframe>
+  </section>
+
+</body>
+</html>
