@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AcueductosIoT — Dashboard de Monitoreo Hídrico</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Skip link para teclado -->
+    <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+
+    <!-- EJERCICIO 1: Navbar -->
+    <nav class="navbar" role="navigation" aria-label="Navegación principal">
+        <strong class="nav-logo" aria-label="AcueductosIoT, ir al inicio">
+            <span aria-hidden="true">💧</span> AcueductosIoT
+        </strong>
+
+        <ul class="nav-links" role="list">
+            <li><a href="#" aria-current="page">Inicio</a></li>
+            <li><a href="#">Sensores</a></li>
+            <li><a href="#">Alertas</a></li>
+            <li><a href="#">Reportes</a></li>
+        </ul>
+
+        <button class="btn-logout" type="button">
+            <span aria-hidden="true">🔓</span> Cerrar Sesión
+        </button>
+    </nav>
+
+    <!-- EJERCICIO 3: Layout de 3 columnas — ocupa todo desde el navbar -->
+    <div class="dashboard-layout">
+
+        <!-- SIDEBAR — flex:1 -->
+        <aside class="sidebar" aria-label="Menú lateral de navegación">
+            <h2 class="sidebar-title">Menú</h2>
+            <nav aria-label="Secciones del dashboard">
+                <ul role="list">
+                    <li><a href="#" aria-current="page" class="sidebar-link active">
+                        <span aria-hidden="true">📊</span> Resumen
+                    </a></li>
+                    <li><a href="#" class="sidebar-link">
+                        <span aria-hidden="true">💧</span> Tanques
+                    </a></li>
+                    <li><a href="#" class="sidebar-link">
+                        <span aria-hidden="true">⚡</span> Presiones
+                    </a></li>
+                    <li><a href="#" class="sidebar-link">
+                        <span aria-hidden="true">🧪</span> Calidad
+                    </a></li>
+                    <li><a href="#" class="sidebar-link">
+                        <span aria-hidden="true">🗺️</span> Mapa Red
+                    </a></li>
+                    <li><a href="#" class="sidebar-link">
+                        <span aria-hidden="true">⚙️</span> Configuración
+                    </a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- MAIN CONTENT — flex:3 -->
+        <main class="main-content" id="main-content" tabindex="-1">
+
+            <!-- EJERCICIO 2: Grid de sensores — dentro del main -->
+            <section class="sensor-grid" aria-label="Lecturas de sensores en tiempo real">
+                <h2 class="section-title">
+                    <span aria-hidden="true">📡</span> Monitoreo en Tiempo Real
+                    <span class="live-badge" role="status" aria-live="polite">● En vivo</span>
+                </h2>
+
+                <ol class="cards-list" role="list">
+
+                    <li>
+                        <article class="sensor-card" aria-labelledby="sensor-tanque">
+                            <h3 id="sensor-tanque">
+                                <span aria-hidden="true">💧</span> Nivel Tanque Principal
+                            </h3>
+                            <p class="sensor-value" aria-label="73 por ciento">73%</p>
+                            <p class="sensor-label">Sector A · hace 2 min</p>
+                            <meter class="sensor-meter" value="73" min="0" max="100"
+                                low="20" high="85" optimum="70"
+                                aria-label="Nivel del tanque: 73%"></meter>
+                        </article>
+                    </li>
+
+                    <li>
+                        <article class="sensor-card sensor-card--warning" aria-labelledby="sensor-presion">
+                            <h3 id="sensor-presion">
+                                <span aria-hidden="true">⚡</span> Presión Red Calle 2
+                            </h3>
+                            <p class="sensor-value" aria-label="28 PSI">28 PSI</p>
+                            <p class="sensor-label">Mín: 30 PSI · hace 1 min</p>
+                            <meter class="sensor-meter" value="28" min="0" max="100"
+                                low="30" high="80" optimum="60"
+                                aria-label="Presión: 28 PSI, por debajo del mínimo"></meter>
+                        </article>
+                    </li>
+
+                    <li>
+                        <article class="sensor-card" aria-labelledby="sensor-cloro">
+                            <h3 id="sensor-cloro">
+                                <span aria-hidden="true">🧪</span> Cloro Residual
+                            </h3>
+                            <p class="sensor-value" aria-label="0 punto 4 miligramos por litro">0.4 mg/L</p>
+                            <p class="sensor-label">Rango: 0.3–0.5 · hace 3 min</p>
+                            <meter class="sensor-meter" value="0.4" min="0" max="1"
+                                low="0.3" high="0.5" optimum="0.4"
+                                aria-label="Cloro residual: 0.4 mg/L, en rango normal"></meter>
+                        </article>
+                    </li>
+
+                    <li>
+                        <article class="sensor-card" aria-labelledby="sensor-caudal">
+                            <h3 id="sensor-caudal">
+                                <span aria-hidden="true">🌊</span> Caudal Naciente Sur
+                            </h3>
+                            <p class="sensor-value" aria-label="142 litros por minuto">142 L/min</p>
+                            <p class="sensor-label">Normal · hace 4 min</p>
+                            <meter class="sensor-meter" value="142" min="0" max="300"
+                                low="50" high="250" optimum="150"
+                                aria-label="Caudal: 142 litros por minuto, normal"></meter>
+                        </article>
+                    </li>
+
+                    <li>
+                        <article class="sensor-card" aria-labelledby="sensor-temp">
+                            <h3 id="sensor-temp">
+                                <span aria-hidden="true">🌡️</span> Temperatura Agua
+                            </h3>
+                            <p class="sensor-value" aria-label="18 punto 2 grados Celsius">18.2 °C</p>
+                            <p class="sensor-label">Normal · hace 5 min</p>
+                            <meter class="sensor-meter" value="18.2" min="0" max="40"
+                                low="10" high="28" optimum="18"
+                                aria-label="Temperatura: 18.2 grados Celsius, normal"></meter>
+                        </article>
+                    </li>
+
+                    <li>
+                        <article class="sensor-card sensor-card--closed" aria-labelledby="sensor-valvula">
+                            <h3 id="sensor-valvula">
+                                <span aria-hidden="true">🔧</span> Válvula Emergencia
+                            </h3>
+                            <p class="sensor-value">Cerrada</p>
+                            <p class="sensor-label">Estado normal · hace 1 min</p>
+                            <p class="sensor-status" role="status">
+                                <span class="status-dot status-dot--ok" aria-hidden="true"></span>
+                                Operando correctamente
+                            </p>
+                        </article>
+                    </li>
+
+                </ol>
+            </section>
+
+            <!-- Gráfico -->
+            <section class="chart-section" aria-label="Gráfico de presión de red">
+                <header class="content-header">
+                    <h2>Presión de Red — Últimas 6 horas</h2>
+                </header>
+
+                <figure class="chart-placeholder" role="img"
+                    aria-label="Gráfico de presión de red en las últimas 6 horas. Valor actual: 28 PSI. Tendencia descendente desde las 03:00.">
+                    <figcaption class="visually-hidden">
+                        Presión de Red últimas 6 horas. Valor actual 28 PSI.
+                        Tendencia descendente registrada desde las 03:00.
+                    </figcaption>
+                    <p class="chart-value" aria-hidden="true">28 PSI</p>
+                    <svg class="chart-svg" viewBox="0 0 500 100" aria-hidden="true"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <polyline
+                            points="0,20 80,22 160,30 240,45 320,55 400,72 500,88"
+                            fill="none" stroke="#22c55e" stroke-width="2.5"
+                            stroke-linecap="round" stroke-linejoin="round"/>
+                        <line x1="0" y1="55" x2="500" y2="55"
+                            stroke="#f59e0b" stroke-width="1"
+                            stroke-dasharray="6,4" opacity="0.5"/>
+                    </svg>
+                    <ol class="chart-labels" aria-hidden="true" role="list">
+                        <li>00:00</li>
+                        <li>01:00</li>
+                        <li>02:00</li>
+                        <li>03:00</li>
+                        <li>04:00</li>
+                        <li>05:00</li>
+                    </ol>
+                </figure>
+
+                <p class="content-note">
+                    <span aria-hidden="true">🕐</span>
+                    Próxima actualización: <time datetime="PT47S">00:47</time>
+                </p>
+            </section>
+
+        </main>
+
+        <!-- ALERT PANEL — flex:1 -->
+        <aside class="alert-panel" aria-label="Alertas activas del sistema"
+            aria-live="polite" aria-atomic="false">
+            <h2 class="alert-title">
+                <span aria-hidden="true">🔔</span> Alertas Activas
+                <span class="alert-count" aria-label="4 alertas activas">4</span>
+            </h2>
+
+            <ol class="alert-list" role="list">
+
+                <li>
+                    <article class="alert-item alert-item--critical"
+                        aria-labelledby="alerta-1" role="alert">
+                        <h3 id="alerta-1" class="alert-name">
+                            <span class="alert-icon" aria-hidden="true">⚠️</span>
+                            Presión baja — Calle 2
+                        </h3>
+                        <p class="alert-detail">Sector B · 28 PSI</p>
+                        <time class="alert-time" datetime="PT2M">hace 2 min</time>
+                    </article>
+                </li>
+
+                <li>
+                    <article class="alert-item alert-item--warning"
+                        aria-labelledby="alerta-2">
+                        <h3 id="alerta-2" class="alert-name">
+                            <span class="alert-icon" aria-hidden="true">📈</span>
+                            Fluctuación detectada
+                        </h3>
+                        <p class="alert-detail">Sector B · ±9 PSI</p>
+                        <time class="alert-time" datetime="PT12M">hace 12 min</time>
+                    </article>
+                </li>
+
+                <li>
+                    <article class="alert-item alert-item--ok"
+                        aria-labelledby="alerta-3">
+                        <h3 id="alerta-3" class="alert-name">
+                            <span class="alert-icon" aria-hidden="true">✅</span>
+                            Cloro en rango normal
+                        </h3>
+                        <p class="alert-detail">0.4 mg/L · OMS: 0.3–0.5</p>
+                        <time class="alert-time" datetime="PT15M">hace 15 min</time>
+                    </article>
+                </li>
+
+                <li>
+                    <article class="alert-item alert-item--ok"
+                        aria-labelledby="alerta-4">
+                        <h3 id="alerta-4" class="alert-name">
+                            <span class="alert-icon" aria-hidden="true">✅</span>
+                            Tanque Principal OK
+                        </h3>
+                        <p class="alert-detail">73% · Sin riesgo de desborde</p>
+                        <time class="alert-time" datetime="PT38M">hace 38 min</time>
+                    </article>
+                </li>
+
+            </ol>
+        </aside>
+
+    </div>
+
+    <footer class="site-footer" role="contentinfo">
+        <p>AcueductosIoT Dashboard v2.4.1</p>
+        <p>
+            <span aria-hidden="true">🟢</span>
+            Todos los sistemas operativos ·
+            <span aria-label="12 sensores conectados">12 sensores conectados</span> ·
+            Última sync: <time datetime="2026-06-06T05:13">06/06/2026 — 05:13</time>
+        </p>
+    </footer>
+
+</body>
+</html>
