@@ -1,0 +1,150 @@
+/* ============================================================
+   palette.css — Flexbox en Zona D
+   ============================================================ */
+
+/* ── Título de sección genérico ── */
+.sec-label {
+  font-size: 10px; font-weight: 700; letter-spacing: 2px;
+  text-transform: uppercase; color: var(--text-3);
+  padding-bottom: 8px; border-bottom: 1px solid var(--border);
+  margin-bottom: 12px;
+}
+
+/* ═══════════════════════════════════════════════
+   SELECTOR: Marca (paso 1) — chips tipo Amazon
+   ═══════════════════════════════════════════════ */
+.brand-chips {
+  display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 4px;
+}
+.brand-chip {
+  display: flex; align-items: center; gap: 6px;
+  background: var(--bg-card); border: 2px solid var(--border-light);
+  border-radius: var(--radius); padding: 7px 12px; cursor: pointer;
+  font-size: 12px; font-weight: 600; color: var(--text-2);
+  transition: border-color .2s, color .2s, background .2s, transform .15s;
+  white-space: nowrap;
+}
+.brand-chip:hover { border-color: var(--accent); color: var(--text-1); background: var(--bg-card-hover); }
+.brand-logo { font-size: 15px; }
+
+/* ═══════════════════════════════════════════════
+   SELECTOR: Modelo (paso 2) — cards tipo Amazon
+   ═══════════════════════════════════════════════ */
+.step-block {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height .4s ease, opacity .3s ease, margin .3s ease;
+  opacity: 0;
+  margin-top: 0;
+}
+/* Mostrar bloque cuando su marca padre está activa — controlado en interactions.css */
+.step-block.visible {
+  max-height: 600px; opacity: 1; margin-top: 16px;
+}
+
+.model-cards {
+  display: flex; flex-direction: column; gap: 8px;
+}
+.model-card {
+  display: flex; align-items: center; gap: 10px;
+  background: var(--bg-card); border: 2px solid var(--border-light);
+  border-radius: var(--radius); padding: 10px; cursor: pointer;
+  transition: border-color .2s, background .2s, transform .15s;
+}
+.model-card:hover { border-color: var(--accent); background: var(--bg-card-hover); transform: translateX(3px); }
+.model-thumb {
+  width: 52px; height: 34px; flex-shrink: 0;
+  border-radius: 6px; overflow: hidden; background: var(--bg-dark);
+  display: flex; align-items: center; justify-content: center;
+}
+.model-thumb svg { width: 100%; height: 100%; }
+.model-info { flex: 1; }
+.model-name { font-size: 12px; font-weight: 700; color: var(--text-1); display: block; }
+.model-sub  { font-size: 10px; color: var(--text-3); display: block; margin-top: 1px; }
+.model-price { font-size: 11px; font-weight: 700; color: var(--accent-2); font-family: var(--mono); }
+
+/* ═══════════════════════════════════════════════
+   SELECTOR: Color (paso 3) — swatches tipo Amazon
+   ═══════════════════════════════════════════════ */
+.color-swatches {
+  display: flex; flex-wrap: wrap; gap: 8px;
+}
+.color-swatch {
+  display: flex; flex-direction: column; align-items: center; gap: 4px;
+  cursor: pointer; padding: 6px 8px; border-radius: var(--radius);
+  border: 2px solid transparent;
+  background: var(--bg-card);
+  transition: border-color .2s, transform .15s, box-shadow .2s;
+  animation: floatIn .35s ease forwards; opacity: 0;
+}
+.color-swatch:hover { border-color: var(--text-2); transform: translateY(-2px); }
+.swatch-dot {
+  width: 26px; height: 26px; border-radius: 50%;
+  border: 2px solid rgba(255,255,255,.12);
+  transition: transform .2s;
+}
+.color-swatch:hover .swatch-dot { transform: scale(1.15); }
+.swatch-name { font-size: 10px; color: var(--text-2); white-space: nowrap; }
+
+/* Colores de cada punto */
+.dot-rojo    { background: var(--color-rojo); }
+.dot-blanco  { background: var(--color-blanco); }
+.dot-negro   { background: var(--color-negro); }
+.dot-azul    { background: var(--color-azul); }
+.dot-verde   { background: var(--color-verde); }
+.dot-naranja { background: var(--color-naranja); }
+.dot-plata   { background: var(--color-plata); }
+.dot-gris    { background: var(--color-gris); }
+.dot-perla   { background: var(--color-perla); }
+.dot-cafe    { background: var(--color-cafe); }
+
+/* Delays escalonados */
+.color-swatch:nth-child(1)  { animation-delay: .00s; }
+.color-swatch:nth-child(2)  { animation-delay: .05s; }
+.color-swatch:nth-child(3)  { animation-delay: .10s; }
+.color-swatch:nth-child(4)  { animation-delay: .15s; }
+.color-swatch:nth-child(5)  { animation-delay: .20s; }
+.color-swatch:nth-child(6)  { animation-delay: .25s; }
+.color-swatch:nth-child(7)  { animation-delay: .30s; }
+.color-swatch:nth-child(8)  { animation-delay: .35s; }
+.color-swatch:nth-child(9)  { animation-delay: .40s; }
+.color-swatch:nth-child(10) { animation-delay: .45s; }
+
+/* ═══════════════════════════════════════
+   ZONA D — Barra inferior de colores (Flexbox)
+   ═══════════════════════════════════════ */
+.palette-bar {
+  display: flex;              /* Flexbox obligatorio */
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;            /* responsivo sin @media */
+  gap: 10px;
+  width: 100%; height: 100%;
+  padding: 8px 16px;
+}
+.palette-bar-label {
+  flex-basis: 100%; text-align: center;
+  font-size: 10px; font-weight: 600; letter-spacing: 1.5px;
+  text-transform: uppercase; color: var(--text-3); padding-top: 6px;
+}
+.bar-swatch {
+  display: flex; flex-direction: column; align-items: center; gap: 4px;
+  cursor: pointer; background: var(--bg-card); border: 2px solid transparent;
+  border-radius: var(--radius); padding: 7px 10px; min-width: 56px;
+  transition: border-color .2s, transform .15s, box-shadow .2s;
+  animation: floatIn .4s ease forwards; opacity: 0;
+}
+.bar-swatch:hover { border-color: var(--text-2); transform: translateY(-3px); box-shadow: 0 6px 18px rgba(0,0,0,.4); }
+.bar-dot { width: 30px; height: 30px; border-radius: 50%; border: 2px solid rgba(255,255,255,.12); transition: transform .2s; }
+.bar-swatch:hover .bar-dot { transform: scale(1.1); }
+.bar-name { font-size: 11px; color: var(--text-2); }
+
+.bar-swatch:nth-child(2)  { animation-delay: .05s; }
+.bar-swatch:nth-child(3)  { animation-delay: .10s; }
+.bar-swatch:nth-child(4)  { animation-delay: .15s; }
+.bar-swatch:nth-child(5)  { animation-delay: .20s; }
+.bar-swatch:nth-child(6)  { animation-delay: .25s; }
+.bar-swatch:nth-child(7)  { animation-delay: .30s; }
+.bar-swatch:nth-child(8)  { animation-delay: .35s; }
+.bar-swatch:nth-child(9)  { animation-delay: .40s; }
+.bar-swatch:nth-child(10) { animation-delay: .45s; }

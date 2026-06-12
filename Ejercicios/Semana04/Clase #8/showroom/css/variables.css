@@ -1,0 +1,36 @@
+/* ============================================================
+   variables.css — Variables CSS Nativas · Auto Style CR
+   ============================================================ */
+:root {
+  --car-color: transparent;
+
+  --color-rojo:    #CC2233;
+  --color-blanco:  #F4F0EB;
+  --color-negro:   #1a1a1a;
+  --color-azul:    #1A4A8A;
+  --color-verde:   #1A6A2A;
+  --color-naranja: #CC5500;
+  --color-plata:   #A8A8B0;
+  --color-gris:    #555566;
+  --color-perla:   #F0EBE0;
+  --color-cafe:    #6B4226;
+
+  --bg-dark:      #0d0f18;
+  --bg-panel:     #13151f;
+  --bg-card:      #1c1f2e;
+  --bg-card-hover:#222538;
+  --accent:       #e63946;
+  --accent-2:     #f4a261;
+  --text-1:       #f0f0f5;
+  --text-2:       #9499b0;
+  --text-3:       #555a72;
+  --border:       #252840;
+  --border-light: #2e3350;
+  --success:      #2ecc71;
+
+  --font: 'Segoe UI', system-ui, sans-serif;
+  --mono: 'Courier New', monospace;
+  --radius: 10px;
+  --radius-lg: 16px;
+  --gap: 14px;
+}

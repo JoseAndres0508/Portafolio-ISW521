@@ -1,0 +1,352 @@
+/* ============================================================
+   interactions.css — :checked · :hover · @keyframes · transitions
+   ISW-521 · Lab 03 · CERO JavaScript
+   ============================================================ */
+
+/* ── Keyframes ── */
+@keyframes floatIn {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes pulse {
+  0%,100% { box-shadow: 0 0 0 2px transparent; }
+  50%     { box-shadow: 0 0 0 3px var(--accent); }
+}
+@keyframes revealVehicle {
+  from { opacity: 0; transform: scale(.97) translateY(8px); }
+  to   { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+/* ════════════════════════════════════════════════════════════
+   PASO 1 — MARCA
+   Al hacer :checked en una marca se muestra su bloque de modelos
+   ════════════════════════════════════════════════════════════ */
+
+/* Chip de marca activo */
+#brand-toyota:checked  ~ .app .brand-chip.chip-toyota,
+#brand-honda:checked   ~ .app .brand-chip.chip-honda,
+#brand-ford:checked    ~ .app .brand-chip.chip-ford {
+  border-color: var(--accent);
+  color: var(--text-1);
+  background: rgba(230,57,70,.14);
+  animation: pulse 2.5s ease-in-out infinite;
+}
+
+/* Mostrar bloque de modelos según marca */
+#brand-toyota:checked  ~ .app .models-toyota { max-height: 600px; opacity: 1; margin-top: 16px; }
+#brand-honda:checked   ~ .app .models-honda  { max-height: 600px; opacity: 1; margin-top: 16px; }
+#brand-ford:checked    ~ .app .models-ford   { max-height: 600px; opacity: 1; margin-top: 16px; }
+
+/* ════════════════════════════════════════════════════════════
+   PASO 2 — MODELO
+   Card de modelo activa
+   ════════════════════════════════════════════════════════════ */
+#model-corolla:checked ~ .app .model-card.card-corolla,
+#model-hilux:checked   ~ .app .model-card.card-hilux,
+#model-civic:checked   ~ .app .model-card.card-civic,
+#model-crv:checked     ~ .app .model-card.card-crv,
+#model-f150:checked    ~ .app .model-card.card-f150,
+#model-ranger:checked  ~ .app .model-card.card-ranger {
+  border-color: var(--accent);
+  background: rgba(230,57,70,.10);
+}
+#model-corolla:checked ~ .app .model-card.card-corolla .model-name,
+#model-hilux:checked   ~ .app .model-card.card-hilux .model-name,
+#model-civic:checked   ~ .app .model-card.card-civic .model-name,
+#model-crv:checked     ~ .app .model-card.card-crv .model-name,
+#model-f150:checked    ~ .app .model-card.card-f150 .model-name,
+#model-ranger:checked  ~ .app .model-card.card-ranger .model-name {
+  color: var(--accent);
+}
+
+/* ════════════════════════════════════════════════════════════
+   PASO 3 — COLOR
+   Actualizar --car-color y resaltar swatch activo
+   ════════════════════════════════════════════════════════════ */
+#color-rojo:checked    ~ .app { --car-color: var(--color-rojo); }
+#color-blanco:checked  ~ .app { --car-color: var(--color-blanco); }
+#color-negro:checked   ~ .app { --car-color: var(--color-negro); }
+#color-azul:checked    ~ .app { --car-color: var(--color-azul); }
+#color-verde:checked   ~ .app { --car-color: var(--color-verde); }
+#color-naranja:checked ~ .app { --car-color: var(--color-naranja); }
+#color-plata:checked   ~ .app { --car-color: var(--color-plata); }
+#color-gris:checked    ~ .app { --car-color: var(--color-gris); }
+#color-perla:checked   ~ .app { --car-color: var(--color-perla); }
+#color-cafe:checked    ~ .app { --car-color: var(--color-cafe); }
+
+/* Swatch activo — sidebar y barra */
+#color-rojo:checked    ~ .app .sw-rojo,
+#color-blanco:checked  ~ .app .sw-blanco,
+#color-negro:checked   ~ .app .sw-negro,
+#color-azul:checked    ~ .app .sw-azul,
+#color-verde:checked   ~ .app .sw-verde,
+#color-naranja:checked ~ .app .sw-naranja,
+#color-plata:checked   ~ .app .sw-plata,
+#color-gris:checked    ~ .app .sw-gris,
+#color-perla:checked   ~ .app .sw-perla,
+#color-cafe:checked    ~ .app .sw-cafe {
+  border-color: #fff;
+  box-shadow: 0 0 12px rgba(255,255,255,.25);
+  transform: translateY(-3px) scale(1.06);
+}
+#color-rojo:checked    ~ .app .sw-rojo    .swatch-name,
+#color-blanco:checked  ~ .app .sw-blanco  .swatch-name,
+#color-negro:checked   ~ .app .sw-negro   .swatch-name,
+#color-azul:checked    ~ .app .sw-azul    .swatch-name,
+#color-verde:checked   ~ .app .sw-verde   .swatch-name,
+#color-naranja:checked ~ .app .sw-naranja .swatch-name,
+#color-plata:checked   ~ .app .sw-plata   .swatch-name,
+#color-gris:checked    ~ .app .sw-gris    .swatch-name,
+#color-perla:checked   ~ .app .sw-perla   .swatch-name,
+#color-cafe:checked    ~ .app .sw-cafe    .swatch-name,
+#color-rojo:checked    ~ .app .sw-rojo    .bar-name,
+#color-blanco:checked  ~ .app .sw-blanco  .bar-name,
+#color-negro:checked   ~ .app .sw-negro   .bar-name,
+#color-azul:checked    ~ .app .sw-azul    .bar-name,
+#color-verde:checked   ~ .app .sw-verde   .bar-name,
+#color-naranja:checked ~ .app .sw-naranja .bar-name,
+#color-plata:checked   ~ .app .sw-plata   .bar-name,
+#color-gris:checked    ~ .app .sw-gris    .bar-name,
+#color-perla:checked   ~ .app .sw-perla   .bar-name,
+#color-cafe:checked    ~ .app .sw-cafe    .bar-name {
+  color: var(--text-1); font-weight: 700;
+}
+
+/* ════════════════════════════════════════════════════════════
+   ZONA B — Vehicle display
+   Grid Overlay: las 3 SVGs en grid-area 1/1, opacity controla cuál se ve
+   ════════════════════════════════════════════════════════════ */
+.vehicle-display {
+  display: none;          /* Oculto hasta que haya modelo + color */
+  width: 100%; height: 100%;
+  min-height: 300px;
+  position: relative;
+}
+.vehicle-display .angle {
+  grid-area: 1 / 1;       /* Todas en la misma celda */
+  opacity: 0;
+  transition: opacity .35s ease;
+  width: 100%; height: 100%; padding: 20px;
+}
+
+/* Mostrar vehículo correcto según modelo Y color seleccionados */
+/* Toyota Corolla */
+#model-corolla:checked ~ .app #color-rojo:checked    ~ .app .veh-corolla,
+#model-corolla:checked ~ .app #color-blanco:checked  ~ .app .veh-corolla,
+#model-corolla:checked ~ .app #color-negro:checked   ~ .app .veh-corolla,
+#model-corolla:checked ~ .app #color-azul:checked    ~ .app .veh-corolla,
+#model-corolla:checked ~ .app #color-verde:checked   ~ .app .veh-corolla,
+#model-corolla:checked ~ .app #color-naranja:checked ~ .app .veh-corolla,
+#model-corolla:checked ~ .app #color-plata:checked   ~ .app .veh-corolla,
+#model-corolla:checked ~ .app #color-gris:checked    ~ .app .veh-corolla,
+#model-corolla:checked ~ .app #color-perla:checked   ~ .app .veh-corolla,
+#model-corolla:checked ~ .app #color-cafe:checked    ~ .app .veh-corolla {
+  display: grid; animation: revealVehicle .4s ease;
+}
+/* Toyota Hilux */
+#model-hilux:checked ~ .app #color-rojo:checked    ~ .app .veh-hilux,
+#model-hilux:checked ~ .app #color-blanco:checked  ~ .app .veh-hilux,
+#model-hilux:checked ~ .app #color-negro:checked   ~ .app .veh-hilux,
+#model-hilux:checked ~ .app #color-azul:checked    ~ .app .veh-hilux,
+#model-hilux:checked ~ .app #color-verde:checked   ~ .app .veh-hilux,
+#model-hilux:checked ~ .app #color-naranja:checked ~ .app .veh-hilux,
+#model-hilux:checked ~ .app #color-plata:checked   ~ .app .veh-hilux,
+#model-hilux:checked ~ .app #color-gris:checked    ~ .app .veh-hilux,
+#model-hilux:checked ~ .app #color-perla:checked   ~ .app .veh-hilux,
+#model-hilux:checked ~ .app #color-cafe:checked    ~ .app .veh-hilux {
+  display: grid; animation: revealVehicle .4s ease;
+}
+/* Honda Civic */
+#model-civic:checked ~ .app #color-rojo:checked    ~ .app .veh-civic,
+#model-civic:checked ~ .app #color-blanco:checked  ~ .app .veh-civic,
+#model-civic:checked ~ .app #color-negro:checked   ~ .app .veh-civic,
+#model-civic:checked ~ .app #color-azul:checked    ~ .app .veh-civic,
+#model-civic:checked ~ .app #color-verde:checked   ~ .app .veh-civic,
+#model-civic:checked ~ .app #color-naranja:checked ~ .app .veh-civic,
+#model-civic:checked ~ .app #color-plata:checked   ~ .app .veh-civic,
+#model-civic:checked ~ .app #color-gris:checked    ~ .app .veh-civic,
+#model-civic:checked ~ .app #color-perla:checked   ~ .app .veh-civic,
+#model-civic:checked ~ .app #color-cafe:checked    ~ .app .veh-civic {
+  display: grid; animation: revealVehicle .4s ease;
+}
+/* Honda CR-V */
+#model-crv:checked ~ .app #color-rojo:checked    ~ .app .veh-crv,
+#model-crv:checked ~ .app #color-blanco:checked  ~ .app .veh-crv,
+#model-crv:checked ~ .app #color-negro:checked   ~ .app .veh-crv,
+#model-crv:checked ~ .app #color-azul:checked    ~ .app .veh-crv,
+#model-crv:checked ~ .app #color-verde:checked   ~ .app .veh-crv,
+#model-crv:checked ~ .app #color-naranja:checked ~ .app .veh-crv,
+#model-crv:checked ~ .app #color-plata:checked   ~ .app .veh-crv,
+#model-crv:checked ~ .app #color-gris:checked    ~ .app .veh-crv,
+#model-crv:checked ~ .app #color-perla:checked   ~ .app .veh-crv,
+#model-crv:checked ~ .app #color-cafe:checked    ~ .app .veh-crv {
+  display: grid; animation: revealVehicle .4s ease;
+}
+/* Ford F-150 */
+#model-f150:checked ~ .app #color-rojo:checked    ~ .app .veh-f150,
+#model-f150:checked ~ .app #color-blanco:checked  ~ .app .veh-f150,
+#model-f150:checked ~ .app #color-negro:checked   ~ .app .veh-f150,
+#model-f150:checked ~ .app #color-azul:checked    ~ .app .veh-f150,
+#model-f150:checked ~ .app #color-verde:checked   ~ .app .veh-f150,
+#model-f150:checked ~ .app #color-naranja:checked ~ .app .veh-f150,
+#model-f150:checked ~ .app #color-plata:checked   ~ .app .veh-f150,
+#model-f150:checked ~ .app #color-gris:checked    ~ .app .veh-f150,
+#model-f150:checked ~ .app #color-perla:checked   ~ .app .veh-f150,
+#model-f150:checked ~ .app #color-cafe:checked    ~ .app .veh-f150 {
+  display: grid; animation: revealVehicle .4s ease;
+}
+/* Ford Ranger */
+#model-ranger:checked ~ .app #color-rojo:checked    ~ .app .veh-ranger,
+#model-ranger:checked ~ .app #color-blanco:checked  ~ .app .veh-ranger,
+#model-ranger:checked ~ .app #color-negro:checked   ~ .app .veh-ranger,
+#model-ranger:checked ~ .app #color-azul:checked    ~ .app .veh-ranger,
+#model-ranger:checked ~ .app #color-verde:checked   ~ .app .veh-ranger,
+#model-ranger:checked ~ .app #color-naranja:checked ~ .app .veh-ranger,
+#model-ranger:checked ~ .app #color-plata:checked   ~ .app .veh-ranger,
+#model-ranger:checked ~ .app #color-gris:checked    ~ .app .veh-ranger,
+#model-ranger:checked ~ .app #color-perla:checked   ~ .app .veh-ranger,
+#model-ranger:checked ~ .app #color-cafe:checked    ~ .app .veh-ranger {
+  display: grid; animation: revealVehicle .4s ease;
+}
+
+/* Ángulo activo */
+#angle-front:checked ~ .app .angle.front { opacity: 1; }
+#angle-side:checked  ~ .app .angle.side  { opacity: 1; }
+#angle-rear:checked  ~ .app .angle.rear  { opacity: 1; }
+
+/* Botón de ángulo activo */
+#angle-front:checked ~ .app .btn-angle-front,
+#angle-side:checked  ~ .app .btn-angle-side,
+#angle-rear:checked  ~ .app .btn-angle-rear {
+  border-color: var(--accent); color: var(--accent);
+  background: rgba(230,57,70,.12);
+}
+
+/* ════════════════════════════════════════════════
+   PLACEHOLDER — mientras no hay selección completa
+   ════════════════════════════════════════════════ */
+.vehicle-placeholder { 
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center; gap: 12px;
+  color: var(--text-3); text-align: center; padding: 30px;
+  width: 100%; height: 100%;
+  transition: opacity .3s;
+}
+.placeholder-icon { font-size: 48px; opacity: .4; }
+.placeholder-text { font-size: 13px; line-height: 1.6; }
+.placeholder-step { font-size: 11px; color: var(--text-3); margin-top: 4px; }
+
+/* Ocultar placeholder cuando hay vehículo visible */
+#model-corolla:checked ~ .app #color-rojo:checked    ~ .app .vehicle-placeholder,
+#model-corolla:checked ~ .app #color-blanco:checked  ~ .app .vehicle-placeholder,
+#model-corolla:checked ~ .app #color-negro:checked   ~ .app .vehicle-placeholder,
+#model-corolla:checked ~ .app #color-azul:checked    ~ .app .vehicle-placeholder,
+#model-corolla:checked ~ .app #color-verde:checked   ~ .app .vehicle-placeholder,
+#model-corolla:checked ~ .app #color-naranja:checked ~ .app .vehicle-placeholder,
+#model-corolla:checked ~ .app #color-plata:checked   ~ .app .vehicle-placeholder,
+#model-corolla:checked ~ .app #color-gris:checked    ~ .app .vehicle-placeholder,
+#model-corolla:checked ~ .app #color-perla:checked   ~ .app .vehicle-placeholder,
+#model-corolla:checked ~ .app #color-cafe:checked    ~ .app .vehicle-placeholder,
+#model-hilux:checked ~ .app #color-rojo:checked    ~ .app .vehicle-placeholder,
+#model-hilux:checked ~ .app #color-blanco:checked  ~ .app .vehicle-placeholder,
+#model-hilux:checked ~ .app #color-negro:checked   ~ .app .vehicle-placeholder,
+#model-hilux:checked ~ .app #color-azul:checked    ~ .app .vehicle-placeholder,
+#model-hilux:checked ~ .app #color-verde:checked   ~ .app .vehicle-placeholder,
+#model-hilux:checked ~ .app #color-naranja:checked ~ .app .vehicle-placeholder,
+#model-hilux:checked ~ .app #color-plata:checked   ~ .app .vehicle-placeholder,
+#model-hilux:checked ~ .app #color-gris:checked    ~ .app .vehicle-placeholder,
+#model-hilux:checked ~ .app #color-perla:checked   ~ .app .vehicle-placeholder,
+#model-hilux:checked ~ .app #color-cafe:checked    ~ .app .vehicle-placeholder,
+#model-civic:checked ~ .app #color-rojo:checked    ~ .app .vehicle-placeholder,
+#model-civic:checked ~ .app #color-blanco:checked  ~ .app .vehicle-placeholder,
+#model-civic:checked ~ .app #color-negro:checked   ~ .app .vehicle-placeholder,
+#model-civic:checked ~ .app #color-azul:checked    ~ .app .vehicle-placeholder,
+#model-civic:checked ~ .app #color-verde:checked   ~ .app .vehicle-placeholder,
+#model-civic:checked ~ .app #color-naranja:checked ~ .app .vehicle-placeholder,
+#model-civic:checked ~ .app #color-plata:checked   ~ .app .vehicle-placeholder,
+#model-civic:checked ~ .app #color-gris:checked    ~ .app .vehicle-placeholder,
+#model-civic:checked ~ .app #color-perla:checked   ~ .app .vehicle-placeholder,
+#model-civic:checked ~ .app #color-cafe:checked    ~ .app .vehicle-placeholder,
+#model-crv:checked ~ .app #color-rojo:checked    ~ .app .vehicle-placeholder,
+#model-crv:checked ~ .app #color-blanco:checked  ~ .app .vehicle-placeholder,
+#model-crv:checked ~ .app #color-negro:checked   ~ .app .vehicle-placeholder,
+#model-crv:checked ~ .app #color-azul:checked    ~ .app .vehicle-placeholder,
+#model-crv:checked ~ .app #color-verde:checked   ~ .app .vehicle-placeholder,
+#model-crv:checked ~ .app #color-naranja:checked ~ .app .vehicle-placeholder,
+#model-crv:checked ~ .app #color-plata:checked   ~ .app .vehicle-placeholder,
+#model-crv:checked ~ .app #color-gris:checked    ~ .app .vehicle-placeholder,
+#model-crv:checked ~ .app #color-perla:checked   ~ .app .vehicle-placeholder,
+#model-crv:checked ~ .app #color-cafe:checked    ~ .app .vehicle-placeholder,
+#model-f150:checked ~ .app #color-rojo:checked    ~ .app .vehicle-placeholder,
+#model-f150:checked ~ .app #color-blanco:checked  ~ .app .vehicle-placeholder,
+#model-f150:checked ~ .app #color-negro:checked   ~ .app .vehicle-placeholder,
+#model-f150:checked ~ .app #color-azul:checked    ~ .app .vehicle-placeholder,
+#model-f150:checked ~ .app #color-verde:checked   ~ .app .vehicle-placeholder,
+#model-f150:checked ~ .app #color-naranja:checked ~ .app .vehicle-placeholder,
+#model-f150:checked ~ .app #color-plata:checked   ~ .app .vehicle-placeholder,
+#model-f150:checked ~ .app #color-gris:checked    ~ .app .vehicle-placeholder,
+#model-f150:checked ~ .app #color-perla:checked   ~ .app .vehicle-placeholder,
+#model-f150:checked ~ .app #color-cafe:checked    ~ .app .vehicle-placeholder,
+#model-ranger:checked ~ .app #color-rojo:checked    ~ .app .vehicle-placeholder,
+#model-ranger:checked ~ .app #color-blanco:checked  ~ .app .vehicle-placeholder,
+#model-ranger:checked ~ .app #color-negro:checked   ~ .app .vehicle-placeholder,
+#model-ranger:checked ~ .app #color-azul:checked    ~ .app .vehicle-placeholder,
+#model-ranger:checked ~ .app #color-verde:checked   ~ .app .vehicle-placeholder,
+#model-ranger:checked ~ .app #color-naranja:checked ~ .app .vehicle-placeholder,
+#model-ranger:checked ~ .app #color-plata:checked   ~ .app .vehicle-placeholder,
+#model-ranger:checked ~ .app #color-gris:checked    ~ .app .vehicle-placeholder,
+#model-ranger:checked ~ .app #color-perla:checked   ~ .app .vehicle-placeholder,
+#model-ranger:checked ~ .app #color-cafe:checked    ~ .app .vehicle-placeholder { display: none; }
+
+/* ════════════════════════════════════════════
+   COTIZACIÓN — por modelo
+   ════════════════════════════════════════════ */
+.quote-body { display: none; }
+#model-corolla:checked ~ .app .q-corolla { display: block; animation: fadeUp .3s ease; }
+#model-hilux:checked   ~ .app .q-hilux   { display: block; animation: fadeUp .3s ease; }
+#model-civic:checked   ~ .app .q-civic   { display: block; animation: fadeUp .3s ease; }
+#model-crv:checked     ~ .app .q-crv     { display: block; animation: fadeUp .3s ease; }
+#model-f150:checked    ~ .app .q-f150    { display: block; animation: fadeUp .3s ease; }
+#model-ranger:checked  ~ .app .q-ranger  { display: block; animation: fadeUp .3s ease; }
+
+/* ── Zona C estilos ── */
+.quote-header { font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--text-3); padding-bottom: 8px; border-bottom: 1px solid var(--border); margin-bottom: 2px; }
+.q-model-name { font-size: 16px; font-weight: 700; color: var(--text-1); margin: 6px 0 2px; }
+.q-model-sub  { font-size: 11px; color: var(--text-3); margin-bottom: 12px; }
+.q-items { display: flex; flex-direction: column; gap: 5px; }
+.q-item  { display: flex; justify-content: space-between; align-items: center; padding: 5px 0; border-bottom: 1px solid var(--border); font-size: 12px; color: var(--text-2); }
+.q-item:hover { color: var(--text-1); }
+.q-price { font-weight: 600; color: var(--text-1); font-family: var(--mono); }
+.q-total { display: flex; justify-content: space-between; align-items: center; padding-top: 8px; border-top: 2px solid var(--accent); margin-top: 6px; }
+.q-total-label  { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
+.q-total-amount { font-size: 20px; font-weight: 700; color: var(--accent); font-family: var(--mono); }
+.btn-quote {
+  display: block; width: 100%; margin-top: 10px;
+  background: var(--accent); color: #fff; border: none;
+  border-radius: var(--radius); padding: 11px; font-size: 12px;
+  font-weight: 700; letter-spacing: 1px; text-transform: uppercase; cursor: pointer;
+  transition: background .2s, transform .1s, box-shadow .2s;
+  animation: floatIn .5s ease both; animation-delay: .5s; opacity: 0;
+}
+.btn-quote:hover  { background: #ff4d5a; transform: translateY(-2px); box-shadow: 0 5px 16px rgba(230,57,70,.4); }
+.btn-quote:active { transform: translateY(0); }
+
+/* ── Ángulo thumbnails en zona B ── */
+.angle-thumbs {
+  position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%);
+  display: flex; gap: 8px; z-index: 10;
+}
+.thumb-btn {
+  background: rgba(255,255,255,.07); border: 1.5px solid var(--border-light);
+  border-radius: 8px; padding: 5px 12px; font-size: 10px; font-weight: 600;
+  color: var(--text-3); cursor: pointer; letter-spacing: .8px; text-transform: uppercase;
+  transition: border-color .2s, color .2s, background .2s;
+}
+.thumb-btn:hover { border-color: var(--text-2); color: var(--text-1); }
+
+/* Accesibilidad */
+label:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: var(--radius); }

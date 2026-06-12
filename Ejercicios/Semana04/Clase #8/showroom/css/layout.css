@@ -1,0 +1,84 @@
+/* ============================================================
+   layout.css — CSS Grid Asimétrico · Macroestructura
+   ============================================================ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  min-height: 100%; background: var(--bg-dark);
+  color: var(--text-1); font-family: var(--font); font-size: 14px;
+}
+
+/* Todos los radio buttons ocultos visualmente pero accesibles */
+.ctrl-radio {
+  position: absolute; opacity: 0; width: 0; height: 0; pointer-events: none;
+}
+
+/* ── Wrapper ── */
+.app {
+  display: flex; flex-direction: column; min-height: 100vh;
+}
+
+/* ── Header ── */
+.app-header {
+  background: var(--bg-panel); border-bottom: 1px solid var(--border);
+  padding: 10px 20px; display: flex; align-items: center; justify-content: space-between;
+  flex-shrink: 0;
+}
+.app-header h1 { font-size: 13px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; }
+.header-tag { font-size: 11px; color: var(--text-3); letter-spacing: .5px; }
+
+/* ══════════════════════════════════════════════════════
+   MACROESTRUCTURA: CSS Grid Asimétrico
+   Zona A | Zona B | Zona C
+            Zona D (100% ancho)
+   ══════════════════════════════════════════════════════ */
+.showroom-grid {
+  display: grid;
+  grid-template-columns: 240px 1fr 290px;
+  grid-template-rows: 1fr 148px;
+  grid-template-areas:
+    'selector  vehicle  quote'
+    'palette   palette  palette';
+  gap: var(--gap);
+  padding: var(--gap);
+  flex: 1;
+  min-height: 0;
+}
+
+/* Responsividad intrínseca — sin @media */
+.showroom-grid {
+  grid-template-columns: minmax(200px,240px) minmax(320px,1fr) minmax(240px,290px);
+}
+
+/* ── Zonas ── */
+.zone-selector {
+  grid-area: selector;
+  background: var(--bg-panel); border: 1px solid var(--border);
+  border-radius: var(--radius-lg); padding: 18px 14px;
+  display: flex; flex-direction: column; gap: 0; overflow-y: auto;
+}
+.zone-vehicle {
+  grid-area: vehicle;
+  background: var(--bg-panel); border: 1px solid var(--border);
+  border-radius: var(--radius-lg); display: flex;
+  align-items: center; justify-content: center;
+  overflow: hidden; position: relative; min-height: 320px;
+}
+.zone-quote {
+  grid-area: quote;
+  background: var(--bg-panel); border: 1px solid var(--border);
+  border-radius: var(--radius-lg); padding: 18px 16px;
+  overflow-y: auto; display: flex; flex-direction: column; gap: 10px;
+}
+.zone-palette {
+  grid-area: palette;
+  background: var(--bg-panel); border: 1px solid var(--border);
+  border-radius: var(--radius-lg); overflow: hidden;
+}
+
+/* ── Footer ── */
+.app-footer {
+  background: var(--bg-panel); border-top: 1px solid var(--border);
+  padding: 7px 20px; display: flex; justify-content: space-between;
+  font-size: 11px; color: var(--text-3); flex-shrink: 0;
+}
