@@ -1,4 +1,5 @@
-console.log('Hello, World!');
+/*
+// console.log('Hello, World!');
 
 if (true) {
     var edad = 25;
@@ -52,3 +53,34 @@ function validarDatos(nombre) {
 }
 
 iniciar();
+*/
+
+//1-12 niños
+//13-17 adolescentes
+//18-64 adultos
+//65+ adultos mayores
+
+const readline = require("readline/promises");
+const { stdin: input, stdout: output } = require("process");
+
+const rl = readline.createInterface({ input, output });
+
+
+    if (edad <= 12) {
+        return "niño";
+    } else if (edad >= 13 && edad <= 17) {
+        return "adolescente";
+    } else if (edad >= 18 && edad <= 64) {
+        return "adulto";
+    } else {
+        return "adulto mayor";
+        }
+
+
+
+
+let edad = 15;
+
+const categoria = edad <= 12 ? "niño" :
+                edad >= 13 && edad <= 17 ? "adolescente" :
+                edad >= 18 && edad <= 64 ? "adulto" : "adulto mayor";  
