@@ -59,7 +59,7 @@ iniciar();
 //13-17 adolescentes
 //18-64 adultos
 //65+ adultos mayores
-
+/*
 const readline = require("readline/promises");
 const { stdin: input, stdout: output } = require("process");
 
@@ -77,10 +77,54 @@ const rl = readline.createInterface({ input, output });
         }
 
 
-
-
 let edad = 15;
 
-const categoria = edad <= 12 ? "niño" :
-                edad >= 13 && edad <= 17 ? "adolescente" :
-                edad >= 18 && edad <= 64 ? "adulto" : "adulto mayor";  
+const categoria = edad <= 12 ? "niño" : edad <= 17 ? "adolescente" : edad >= 18 && edad <= 64 ? "adulto" : "adulto mayor";  
+console.log(`La categoría de edad es: ${categoria}`);
+
+*/
+
+/*SWITCH con mes del año*/
+
+const mes = "Agosto";
+
+switch (mes) {
+    case "Enero":
+        console.log("Inicio del año");
+        break;
+    case "Febrero":
+        console.log("Mes del amor");
+        break;
+    case "Marzo":
+        console.log("Mes de la primavera");
+        break;
+    case "Abril":
+        console.log("Mes de las flores");
+        break;
+    case "Mayo":
+        console.log("Mes de los Santos");
+        break;
+    case "Junio":
+        console.log("Mes del sol");
+        break;
+    case "Julio":
+        console.log("Mes de las vacaciones");
+        break;
+    case "Agosto":
+        console.log("MI CUMPLEAÑOS");
+        break;
+    case "Septiembre":
+        console.log("Mes de la independencia");
+        break;
+    case "Octubre":
+        console.log("Mes de Halloween");
+        break;
+    case "Noviembre":
+        console.log("Mes de los muertos");
+        break;
+    case "Diciembre":
+        console.log("Mes de la Navidad");
+        break;
+    default:
+        console.log("Mes no reconocido");
+}
