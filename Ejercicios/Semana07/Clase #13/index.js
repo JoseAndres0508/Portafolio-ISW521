@@ -52,3 +52,7 @@ const persona = {nombre: "Carla", edad: 30};
 const {edad:anios = 31 } = persona;
 console.log(anios);
 
+function sumarTodo(...numeros){
+    return numeros.reduce((acumulador, numero) => acumulador + numero, 0);
+}   
+console.log(sumarTodo(1, 2, 3, 4, 5)); // 15
