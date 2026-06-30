@@ -70,3 +70,12 @@ console.log(actualizado); // {nombre: "Equipo A", puntos: 15}
 const numero = [1, 2, 3];
 const nuevoNumero = [...numero, 4];
 */
+
+/* Optional Chaining: Permite acceder a propiedades de objetos anidados sin tener que verificar si cada nivel existe. 
+Si alguna propiedad es null o undefined, la expresión devuelve undefined en lugar de lanzar un error. */
+
+const respuesta = {data: {usuario: null}};
+const nombre = respuesta.data.usuario?.nombre;  
+
+const nombre = respuesta?.data.usuario?.nombre; 
+console.log(nombre); // undefined
