@@ -47,12 +47,26 @@ presentar.apply(persona1, ["Buenas"]); // Hola, soy Carla
 const presentarCarla = presentar.bind(persona1);
 presentarCarla("Que tal"); // Que Tal, soy Carla
 */
-
+/*
 const persona = {nombre: "Carla", edad: 30};
 const {edad:anios = 31 } = persona;
 console.log(anios);
-
+*/
+/*
 function sumarTodo(...numeros){
     return numeros.reduce((acumulador, numero) => acumulador + numero, 0);
 }   
-console.log(sumarTodo(1, 2, 3, 4, 5)); // 15
+console.log(sumarTodo(1, 2, 3, 4, 5,50,86,21,562,24,5155)); 
+*/
+
+/* Spread Operator 
+
+const original = {nombre: "Equipo A", puntos: 10};
+const actualizado = {...original, puntos: 15};
+
+console.log(original); // {nombre: "Equipo A", puntos: 10}
+console.log(actualizado); // {nombre: "Equipo A", puntos: 15}
+
+const numero = [1, 2, 3];
+const nuevoNumero = [...numero, 4];
+*/
