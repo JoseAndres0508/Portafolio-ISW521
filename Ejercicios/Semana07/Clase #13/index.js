@@ -118,7 +118,7 @@ let copia = estudiante;
 copia.nombre = "Pedro";
 console.log(estudiante.nombre);*/
 
-
+/* 
 const animal = {
     comer() {
         console.log(`${this.nombre} está comiendo`);
@@ -129,4 +129,24 @@ const perro = Object.create(animal);
 perro.nombre = "Firulais";
 perro.comer(); // Firulais está comiendo
 
-console.log(Object.__proto__ === animal); 
+console.log(perro.__proto__ === animal); /* === extricta / == abstracta*/ 
+
+/*
+const base = { saludo: "hola" };
+const hijo = Object.create(base);
+console.log(hijo.saludo); // "hola"
+hijo.saludo = "Pura vida";
+console.log(hijo.saludo); // "Pura vida"
+console.log(base.saludo); // "hola" */
+
+function Persona(nombre, edad) {
+    this.nombre = nombre;
+    this.edad = edad;
+}   
+
+Persona.prototype.saludar = function() {
+    console.log(`Hola, soy ${this.nombre}.`);
+}
+
+const ana = new Persona("Ana", 25);
+ana.saludar(); // Hola, soy Ana.
