@@ -94,3 +94,8 @@ console.log(nombre || "Invitado"); // Invitado
 console.log(nombre ?? "Invitado"); // ""
 
 */
+
+import { sumar, restar } from './operadores.js';
+
+console.log(sumar(5, 3)); 
+console.log(restar(5, 3)); 
