@@ -72,10 +72,25 @@ const nuevoNumero = [...numero, 4];
 */
 
 /* Optional Chaining: Permite acceder a propiedades de objetos anidados sin tener que verificar si cada nivel existe. 
-Si alguna propiedad es null o undefined, la expresión devuelve undefined en lugar de lanzar un error. */
+Si alguna propiedad es null o undefined, la expresión devuelve undefined en lugar de lanzar un error. 
 
 const respuesta = {data: {usuario: null}};
 const nombre = respuesta.data.usuario?.nombre;  
 
 const nombre = respuesta?.data.usuario?.nombre; 
-console.log(nombre); // undefined
+console.log(nombre); // undefined 
+
+*/
+
+/* Nullisgh Coalescing Operator: Permite asignar un valor predeterminado 
+a una variable si el valor es null o undefined.
+
+const descuento = 0;
+console.log(descuento || 10); // 10
+console.log(descuento ?? 10); // 0
+
+const nombre = "";
+console.log(nombre || "Invitado"); // Invitado
+console.log(nombre ?? "Invitado"); // ""
+
+*/
