@@ -100,9 +100,33 @@ import { sumar, restar } from './operadores.js';
 console.log(sumar(5, 3)); 
 console.log(restar(5, 3)); */
 
+/*
 import {Perro} from './Perro.js';
 
 const miPerro = new Perro("Firulais", "mamifero", "Golden Retriever", 3);
 
-console.log(miPerro.ladrar);
-console.log(miPerro.comer);
+console.log(miPerro.ladrar());
+console.log(miPerro.comer());
+*/
+/*
+const estudiante = {
+    nombre: "Juan",
+    edad: 20,
+}
+
+let copia = estudiante;
+copia.nombre = "Pedro";
+console.log(estudiante.nombre);*/
+
+
+const animal = {
+    comer() {
+        console.log(`${this.nombre} está comiendo`);
+    }
+};
+
+const perro = Object.create(animal);
+perro.nombre = "Firulais";
+perro.comer(); // Firulais está comiendo
+
+console.log(Object.__proto__ === animal); 
