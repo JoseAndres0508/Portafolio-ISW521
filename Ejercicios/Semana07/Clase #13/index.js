@@ -138,7 +138,7 @@ console.log(hijo.saludo); // "hola"
 hijo.saludo = "Pura vida";
 console.log(hijo.saludo); // "Pura vida"
 console.log(base.saludo); // "hola" */
-
+/*
 function Persona(nombre, edad) {
     this.nombre = nombre;
     this.edad = edad;
@@ -150,3 +150,32 @@ Persona.prototype.saludar = function() {
 
 const ana = new Persona("Ana", 25);
 ana.saludar(); // Hola, soy Ana.
+*/
+
+/*
+function Curso(nombre){
+    this.nombre = nombre;
+}
+
+const prog = new Curso("Programación Web"); new was missing
+console.log(prog.nombre); // Programación Web
+*/
+
+/* Get y Set    */
+
+class CuentaBancaria {
+    constructor(saldoInicial) {
+        this._saldo = saldoInicial;
+    }
+    get saldo() {
+        return this._saldo;
+    }
+    set saldo(valor) {
+        if (valor < 0) throw new Error("El saldo no puede ser negativo");
+        this._saldo = valor;
+    }
+}
+
+const cuenta = new CuentaBancaria(1000);
+console.log(1500);
+console.log(cuenta.saldo); // 1000
