@@ -11,9 +11,28 @@ arr[7] = "z";
 arr.length;
 */
 
+/*
 const doubleImp = [];
 for (let i = 0; i < 10; i++) {
     doubleImp.push(i * 2);
 }
 
 const doubleDec = numeros.map(n => n * 2);
+*/
+
+
+/* Imperativo
+const precios = [100, 250, 80, 400];
+const caros = [];
+for (let i = 0; i < precios.length; i++) {
+    if (precios[i] > 200) {
+        caros.push(precios[i]);
+    }
+}
+console.log(caros); */
+
+/* Declarativo 
+const precios = [100, 250, 80, 400];
+
+const caros = precios.filter(precio => precio > 150);
+console.log(caros); */
