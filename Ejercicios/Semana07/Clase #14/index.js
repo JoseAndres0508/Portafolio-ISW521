@@ -11,3 +11,9 @@ arr[7] = "z";
 arr.length;
 */
 
+const doubleImp = [];
+for (let i = 0; i < 10; i++) {
+    doubleImp.push(i * 2);
+}
+
+const doubleDec = numeros.map(n => n * 2);
