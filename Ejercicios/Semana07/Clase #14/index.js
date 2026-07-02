@@ -36,3 +36,15 @@ const precios = [100, 250, 80, 400];
 
 const caros = precios.filter(precio => precio > 150);
 console.log(caros); */
+
+const estudiantes = [
+    {nombre: "Ana", carnet: "2024001"},
+    {nombre: "Luis", carnet: "2024002"}
+];
+
+
+const carnets = estudiantes.map(
+    e => `${e.carnet}: ${e.nombre.toUpperCase()}`
+);
+
+console.log(carnets);
