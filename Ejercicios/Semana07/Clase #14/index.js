@@ -48,7 +48,7 @@ const carnets = estudiantes.map(
 
 console.log(carnets);
 */
-
+/*
 const estudiantes = [
     {nombre: "Ana", promedio: 85},
     {nombre: "Luis", promedio: 90},
@@ -57,3 +57,6 @@ const estudiantes = [
 ];
 
 const aprobados = estudiantes.filter(estudiante => estudiante.promedio >= 80);
+*/
+
+

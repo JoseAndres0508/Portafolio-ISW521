@@ -163,6 +163,7 @@ console.log(prog.nombre); // Programación Web
 
 /* Get y Set    */
 
+/*
 class CuentaBancaria {
     constructor(saldoInicial) {
         this._saldo = saldoInicial;
@@ -178,4 +179,5 @@ class CuentaBancaria {
 
 const cuenta = new CuentaBancaria(1000);
 console.log(1500);
-console.log(cuenta.saldo); // 1000
+console.log(cuenta.saldo); // 1000 */
+
